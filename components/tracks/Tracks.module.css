@@ -12,7 +12,7 @@
     flex: 1;
 }
 
-.uploadTrack h1{
+.uploadTrack h1 {
     font-size: 30px;
 }
 
@@ -25,14 +25,18 @@
     cursor: pointer;
 }
 
-.uploadTrack button:hover{
+.uploadTrack button:hover {
     transform: scale(1.1);
     transition: 200ms;
     box-shadow: 0px 1px 24px 1px rgba(37, 187, 40, 1);
 }
 
-.uploadTrack button:not(:hover){
+.uploadTrack button:not(:hover) {
     transform: scale(1);
     transition: 200ms;
     box-shadow: none;
+}
+
+.tracksListWrapper {
+    display: flex;
 }

@@ -1,0 +1,15 @@
+
+.trackListWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.trackListWrapper ul li{
+    margin-top: 80px;
+    width: 45vw;
+    transform: scale(1.1);
+    background-color: rgba(91, 39, 39, 0.2);
+    padding: 1px;
+    border-radius: 20px;
+}
