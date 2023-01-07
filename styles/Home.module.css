@@ -50,3 +50,18 @@
     transform: translate(-10px);
     transition: 500ms;
 }
+
+
+@media screen and (max-width: 960px) {
+   .mainWrapper{
+       display: flex;
+       align-items: center;
+       height: auto;
+       justify-content: center;
+   }
+
+    .sideBar{
+        top: 0;
+        left: 0;
+    }
+}
