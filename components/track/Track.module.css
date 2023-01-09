@@ -1,5 +1,25 @@
 
 
+.returnBtn{
+    display: flex;
+    margin-bottom: 10px;
+    transform: translateX(-30px);
+    justify-content: flex-start;
+}
+
+.returnBtn button{
+    background-color: var(--secondary-color);
+    color: white;
+    font-family: var(--font-fam);
+    font-size: 20px;
+    border-radius: 6px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
 .trackWrapper{
     display: flex;
     flex-direction: column;

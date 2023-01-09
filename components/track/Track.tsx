@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { CommentsForm } from './commentForm/CommentsForm';
 import { Comments } from './comments/Comments';
 import { ITrack } from '../../models/tracks';
+import { AiOutlineRollback } from 'react-icons/ai';
+import { useRouter } from 'next/navigation';
 
 const track: ITrack = {
   _id: '1',
@@ -19,16 +21,24 @@ const track: ITrack = {
     { _id: '2', text: 'cool ', username: 'coolguy' },
     { _id: '3', text: 'cool ', username: 'coolguy' },
     { _id: '4', text: 'cool ', username: 'coolguy' },
-    { _id: '5', text: 'cool ', username: 'coolguy' },
+    { _id: '5', text: 'cool ', username: 'coolguy' }
   ]
 };
 
 export const Track = ({ id }: any) => {
 
-  const commentsList = track.comments
+  const commentsList = track.comments;
+  const router = useRouter();
 
   return (
     <div className={styles.trackWrapper}>
+
+      <div className={styles.returnBtn}>
+        <button onClick={() => router.back()}>
+          <AiOutlineRollback />
+          Return to the list
+        </button>
+      </div>
 
       <div className={styles.trackHead}>
         <Image src={track.picture} alt={''} height={300} width={300} />
@@ -57,7 +67,7 @@ export const Track = ({ id }: any) => {
       </div>
 
       <div className={styles.commentsWrapper}>
-        <Comments comments={commentsList}  />
+        <Comments comments={commentsList} />
       </div>
 
 
