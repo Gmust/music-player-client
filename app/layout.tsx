@@ -4,6 +4,8 @@ import '../styles/globals.css';
 import styles from '../styles/Home.module.css';
 import { Drawer } from '../components/sidebar/Drawer';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
+import { useWindowDimensions } from '../utils/hooks';
+import { FooterNavigation } from '../components/footerNavigation/FooterNavigation';
 
 export default function RootLayout({
                                      children
@@ -12,24 +14,34 @@ export default function RootLayout({
 }) {
 
   const [openDrawer, setOpenDrawer] = useState(false);
+  const { width } = useWindowDimensions();
 
   return (
     <html>
     <head />
     <body className={styles.mainWrapper}>
 
-    <div className={styles.sideBar}>
 
-      <div className={openDrawer ? '' : styles.drawerNotVisible}>
-        <Drawer openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
-      </div>
-
-      {!openDrawer &&
-        <div className={styles.drawerIcon}>
-          <AiOutlineMenuUnfold onClick={() => setOpenDrawer(true)} size={50} />
+    {
+      width <= 960 ?
+        <div className={styles.footerNav}>
+          <FooterNavigation />
         </div>
-      }
-    </div>
+        :
+
+        <div className={styles.sideBar}>
+
+          <div className={openDrawer ? '' : styles.drawerNotVisible}>
+            <Drawer openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
+          </div>
+
+          {!openDrawer &&
+            <div className={styles.drawerIcon}>
+              <AiOutlineMenuUnfold onClick={() => setOpenDrawer(true)} size={50} />
+            </div>
+          }
+        </div>
+    }
 
     <div className={styles.pagesWrapper}>
       {children}

@@ -1,0 +1,14 @@
+
+.footerNavWrapper {
+    bottom: 0;
+    display: flex;
+    width: 100vw;
+    border-top: 2px solid var(--secondary-color);
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerNavWrapper ul li{
+    display: inline;
+}
