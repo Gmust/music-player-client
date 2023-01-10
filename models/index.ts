@@ -1,4 +1,3 @@
-import { IconType } from 'react-icons';
 import { ReactElement } from 'react';
 
 
@@ -7,3 +6,4 @@ export interface IRoutes {
   label: string,
   icon: ReactElement
 }
+

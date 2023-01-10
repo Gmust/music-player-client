@@ -1,0 +1,35 @@
+
+.stepperWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.progressBarContainer{
+    width: 100%;
+    margin-top: 30px;
+    color: var(--main-color);
+    font-family: var(--font-fam);
+}
+
+.progressBar{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.firstS{
+    color: var(--secondary-color);
+}
+
+.secondS{
+    color: var(--secondary-color);
+
+
+
+}
+
+.thirdS{
+    color: var(--secondary-color);
+
+
+}

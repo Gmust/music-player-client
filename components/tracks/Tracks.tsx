@@ -4,8 +4,8 @@ import styles from './Tracks.module.css';
 import Modal from '../../app/assets/Modal/Modal';
 import { $modal, setShowModal } from '../../store/view';
 import { useStore } from 'effector-react';
-import { ITrack } from '../../models/tracks';
 import { TrackList } from './trackList/TrackList';
+import {  StepperWrapper } from './stepper/Stepper';
 
 
 export const Tracks = () => {
@@ -26,7 +26,7 @@ export const Tracks = () => {
       </div>
 
       <Modal showModal={showModal}>
-        <div style={{ color: 'red' }}>Hellow</div>
+        <StepperWrapper />
       </Modal>
 
     </div>

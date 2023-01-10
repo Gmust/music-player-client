@@ -15,7 +15,9 @@ const Modal: FC<TModalProps> = ({ children, showModal }) => {
     <div className={showModal ? `${styles.modalWrapper}  ${styles.activeW}` : styles.modalWrapper}
          onClick={() => setShowModal(false)}
     >
-      <div className={showModal ? `${styles.modalContent}  ${styles.activeC}` : styles.modalContent}>
+      <div className={showModal ? `${styles.modalContent}  ${styles.activeC}` : styles.modalContent}
+           onClick={e => e.stopPropagation()}
+      >
         {children}
       </div>
     </div>
