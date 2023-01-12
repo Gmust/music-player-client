@@ -1,13 +1,18 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import { $stepNumber } from '../../../store/view';
+import { $stepNumber, setShowModal } from '../../../store/view';
 import { FirstStep } from './firstStep/FirstStep';
 import { SecondStep } from './secondStep/SecondStep';
 import { ThirdStep } from './thirdStep/ThirdStep';
+import dynamic from 'next/dynamic';
 import styles from './Stepper.module.css';
-import { Step, Stepper } from 'react-form-stepper';
+import { AiFillCloseSquare } from 'react-icons/ai';
 
-const StepperComponents = ({ steps }: any) => {
+const StepperComponent = dynamic(() => import('../../../assets/customStepper/CustomStepper'), {
+  ssr: false
+});
+
+const StepperComponents = () => {
 
   const step = useStore($stepNumber);
 
@@ -18,6 +23,8 @@ const StepperComponents = ({ steps }: any) => {
       return <SecondStep />;
     case 2:
       return <ThirdStep />;
+    default:
+      return <FirstStep />;
   }
 
 };
@@ -29,17 +36,18 @@ export const StepperWrapper = () => {
   const stepNumber = useStore($stepNumber);
 
   return (
-    <div>
-      {// @ts-ignore
-        <StepperComponents steps={step} />
-      }
-      <div className={styles.progressBarContainer}>
-        <Stepper activeStep={stepNumber}>
-          {step.map((item) => <Step key={item} label={item} />)}
-        </Stepper>
+    <div className={styles.stepperWrapper}>
+
+      <div className={styles.closeIcon}>
+        <AiFillCloseSquare size={30} color='red' onClick={()=>setShowModal(false)}/>
       </div>
 
-      <button onClick={() => console.log(step)}></button>
+      <StepperComponents />
+
+      <div className={styles.progressBarContainer}>
+        <StepperComponent />
+      </div>
+
     </div>
   );
 

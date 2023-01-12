@@ -4,8 +4,8 @@ import '../styles/globals.css';
 import styles from '../styles/Home.module.css';
 import { Drawer } from '../components/sidebar/Drawer';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
-import { useWindowDimensions } from '../utils/hooks';
 import { FooterNavigation } from '../components/footerNavigation/FooterNavigation';
+import useDeviceSize from '../utils/hooks';
 
 export default function RootLayout({
                                      children
@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
 
   const [openDrawer, setOpenDrawer] = useState(false);
-  const { width } = useWindowDimensions();
+  const [width, height] = useDeviceSize();
 
   return (
     <html>
@@ -23,7 +23,7 @@ export default function RootLayout({
 
 
     {
-      width <= 960 ?
+      width! <= 960 ?
         <div className={styles.footerNav}>
           <FooterNavigation />
         </div>

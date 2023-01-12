@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import styles from './Tracks.module.css';
-import Modal from '../../app/assets/Modal/Modal';
+import Modal from '../../assets/Modal/Modal';
 import { $modal, setShowModal } from '../../store/view';
 import { useStore } from 'effector-react';
 import { TrackList } from './trackList/TrackList';

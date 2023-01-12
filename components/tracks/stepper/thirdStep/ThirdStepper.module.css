@@ -1,0 +1,33 @@
+.thirdStepWrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.uploadBtnWrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.uploadBtnStyle {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.uploadBtnWrapper input[type='file'] {
+    font-size: 20px;
+    width: 96%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}

@@ -11,25 +11,22 @@
     font-family: var(--font-fam);
 }
 
-.progressBar{
+
+
+
+.closeIcon{
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
-.firstS{
-    color: var(--secondary-color);
+.closeIcon svg{
+    transition: 200ms;
 }
 
-.secondS{
-    color: var(--secondary-color);
-
-
-
-}
-
-.thirdS{
-    color: var(--secondary-color);
-
+.closeIcon svg:hover{
+    transform: scale(1.2);
+    transition: 200ms;
+    cursor: pointer;
 
 }

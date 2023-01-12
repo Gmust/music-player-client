@@ -1,0 +1,25 @@
+.nextBtnStyle {
+    display: flex;
+    margin-top: 10px;
+}
+
+.nextBtnStyle button {
+    width: 200px;
+    height: 40px;
+    border: 1px solid var(--main-color);
+    font-family: var(--font-fam);
+}
+
+.invalidBtn {
+    transition: 500ms;
+    color: black;
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+.validBtn {
+    transition: 500ms;
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+}

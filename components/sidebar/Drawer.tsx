@@ -4,7 +4,7 @@ import { routes } from '../../Routes';
 import { IRoutes } from '../../models';
 import Link from 'next/link';
 import { FaWindowClose } from 'react-icons/fa';
-import { Router } from '../../app/assets/router/Router';
+import { Router } from '../../assets/router/Router';
 
 type TDrawerProps = {
   openDrawer: boolean;

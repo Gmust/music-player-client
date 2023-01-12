@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styles from './Modal.module.css';
-import { setShowModal } from '../../../store/view';
+import { setShowModal } from '../../store/view';
 
 
 type TModalProps = {

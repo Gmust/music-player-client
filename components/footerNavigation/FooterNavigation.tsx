@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './FooterNavigation.module.css';
-import { Router } from '../../app/assets/router/Router';
+import { Router } from '../../assets/router/Router';
 
 export const FooterNavigation = () => {
   return (

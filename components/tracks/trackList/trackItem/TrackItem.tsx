@@ -20,7 +20,7 @@ export const TrackItem: FC<ITrack> = ({ _id, comments, audio, listens, artist, p
         <span>by: {artist}</span>
 
         <div className={styles.trackImg} style={{}}>
-          <Image  src={picture} alt={''} width={150}  height={150}/>
+          <Image  src={picture} alt={''} width={150} priority={false}  height={150}/>
         </div>
       </div>
 
