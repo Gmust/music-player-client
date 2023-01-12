@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import { $stepNumber, setShowModal } from '../../../store/view';
+import { $stepNumber, setShowModal, setStepperStep } from '../../../store/view/model';
 import { FirstStep } from './firstStep/FirstStep';
 import { SecondStep } from './secondStep/SecondStep';
 import { ThirdStep } from './thirdStep/ThirdStep';
@@ -39,7 +39,10 @@ export const StepperWrapper = () => {
     <div className={styles.stepperWrapper}>
 
       <div className={styles.closeIcon}>
-        <AiFillCloseSquare size={30} color='red' onClick={()=>setShowModal(false)}/>
+        <AiFillCloseSquare size={30} color='red' onClick={() => {
+          setShowModal(false);
+          setStepperStep(0);
+        }} />
       </div>
 
       <StepperComponents />

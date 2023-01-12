@@ -7,17 +7,19 @@ const nextConfig = {
   experimental: {
     appDir: true
   },
-  images: {
+/*  images: {
     remotePatterns: [
       {
         protocol: 'http',
         hostname: 'localhost',
         port: '8080',
-        pathname: '/picture/**'
+        pathname: '/picture/!**'
       }
-    ]
-  },
-  domains: ['localhost']
+    ],
+  },*/
+  images : {
+    domains : ['localhost']
+  }
 };
 
 module.exports = nextConfig;

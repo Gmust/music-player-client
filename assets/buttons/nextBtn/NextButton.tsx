@@ -1,17 +1,22 @@
 import React from 'react';
 import styles from './NextButton.module.css';
-import { setStepperStep } from '../../../store/view';
+
 
 type TNextButtonProps = {
   title: string
-  stepNum: number
   isValid: boolean
+  type?: 'button' | 'submit' | 'reset' | undefined
 }
 
-export const NextButton: React.FC<TNextButtonProps> = ({ title, stepNum,isValid }) => {
+export const NextButton: React.FC<TNextButtonProps> = ({
+                                                         title,
+                                                         isValid, type
+                                                       }) => {
+
   return (
     <div className={styles.nextBtnStyle}>
-      <button className={isValid? styles.validBtn : styles.invalidBtn} disabled={!isValid} onClick={()=> setStepperStep(stepNum) }>
+      <button className={isValid ? styles.validBtn : styles.invalidBtn} disabled={!isValid}
+              type='submit'>
         {title}
       </button>
     </div>

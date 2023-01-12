@@ -1,5 +1,5 @@
 import { useStore } from 'effector-react';
-import { $stepNumber } from '../../store/view';
+import { $stepNumber } from '../../store/view/model';
 import { Step, Stepper } from 'react-form-stepper';
 import React from 'react';
 

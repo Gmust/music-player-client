@@ -1,16 +1,21 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Tracks.module.css';
 import Modal from '../../assets/Modal/Modal';
-import { $modal, setShowModal } from '../../store/view';
+import { $modal, setShowModal } from '../../store/view/model';
 import { useStore } from 'effector-react';
 import { TrackList } from './trackList/TrackList';
 import {  StepperWrapper } from './stepper/Stepper';
+import { getTracksFx } from '../../store/tracks';
 
 
 export const Tracks = () => {
 
   const showModal = useStore($modal);
+
+  useEffect(()=>{
+    getTracksFx();
+  },[])
 
   return (
     <div className={styles.tracksWrapper}>
