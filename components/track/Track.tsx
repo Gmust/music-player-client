@@ -33,7 +33,7 @@ export const Track = ({ id }: any) => {
       </div>
 
       <div className={styles.trackHead}>
-        <Image src={'http://localhost:8080/' +  track.picture} alt={''} height={300} width={300} />
+        <Image src={'http://localhost:8080/' + track.picture} alt={''} height={300} width={300} />
 
         <div>
           <h1>{track.name}</h1>
@@ -42,7 +42,7 @@ export const Track = ({ id }: any) => {
           <br />
           <div className={styles.listens}>
             <span>Listens: </span>
-            <span> {track.listens}</span>
+            <span> {track.listens ? track.listens : track.listens = 0}</span>
           </div>
         </div>
       </div>

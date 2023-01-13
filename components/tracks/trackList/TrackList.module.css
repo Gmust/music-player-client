@@ -1,18 +1,21 @@
 
 .trackListWrapper {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     margin: 10px;
 }
 
 .trackListWrapper ul li {
-    margin-top: 50px;
-    width: 45vw;
+    margin: 50px 60px 5px 5px;
     transform: scale(1.1);
     background-color: rgba(21, 11, 11, 0.2);
     border: 2px solid var(--secondary-color);
     padding: 1px;
     border-radius: 20px;
+}
+.trackListWrapper ul{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .trackImg{

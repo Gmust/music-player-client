@@ -5,6 +5,7 @@ import Image from 'next/image';
 import ReactAudioPlayer from 'react-audio-player';
 import { useRouter } from 'next/navigation';
 import { addOneListenFx } from '../../../../store/tracks';
+import TrackItemPlayer from './trackItemPlayer/TrackItemPlayer';
 
 export const TrackItem: FC<ITrack> = ({ _id, comments, audio, listens, artist, picture, text, name }) => {
 
@@ -30,8 +31,7 @@ export const TrackItem: FC<ITrack> = ({ _id, comments, audio, listens, artist, p
       </div>
 
       <div className={styles.playerStyle}>
-        <ReactAudioPlayer src={'http://localhost:8080/' + audio} onPlay={() => addOneListenFx(_id)}
-                          controls volume={0.1} />
+        <TrackItemPlayer audio={'http://localhost:8080/' + audio}/>
       </div>
 
     </div>

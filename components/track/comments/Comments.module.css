@@ -4,9 +4,15 @@
     flex-direction: column;
 }
 
-.commentsWrapper span{
+.commentsWrapper span {
     font-size: 30px;
     margin-top: 20px;
     font-weight: bold;
     font-style: italic;
+}
+
+.commentsWrapper h2 {
+    font-size: 30px;
+    margin-top: 20px;
+    color: red;
 }

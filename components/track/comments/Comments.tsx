@@ -12,9 +12,14 @@ export const Comments = ({ comments }: any) => {
       <span>
         Comments
       </span>
-      {comments.map(({ _id, text, username }: IComment) =>
-        <CommentItem key={_id} _id={_id} text={text}
-                     username={username} />)}
+      {
+        comments.length != 0 ?
+          comments.map(({ _id, text, username }: IComment) =>
+            <CommentItem key={_id} _id={_id} text={text}
+                         username={username} />)
+          :
+          <h2>There is no comments yet</h2>
+      }
     </div>
   );
 };
