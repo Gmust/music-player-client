@@ -1,23 +1,23 @@
 import { createDomain } from 'effector';
-import { ICurrentTrack } from '../../models/tracks';
 import { ITime } from '../../models/player';
 
 
 const player = createDomain();
 
-export const setCurrentTrack = player.createEvent<ICurrentTrack>();
+export const setCurrentAudio = player.createEvent<string>();
 export const setVolume = player.createEvent<number>();
-export const setIsCurrentTrackPlaying = player.createEvent<boolean>();
-export const setPlayerCurrentTrackTime = player.createEvent<ITime>();
+export const setIsPlaying = player.createEvent<boolean>();
+export const setCurrentTrackTime = player.createEvent<ITime>();
+export const setTrackTime = player.createEvent<ITime>();
 
 export const $volume = player.createStore(0.3)
   .on(setVolume, (_, volume) => volume);
 
 export const $isPlaying = player.createStore(false)
-  .on(setIsCurrentTrackPlaying, (_, isPlaying) => isPlaying);
+  .on(setIsPlaying, (_, isPlaying) => isPlaying);
 
-export const $currentPlayerTrackTime = player.createStore<ITime>({ min: 0, sec: 0 })
-  .on(setPlayerCurrentTrackTime, (state, time) => {
+export const $currentTrackTime = player.createStore<ITime>({ min: 0, sec: 0 })
+  .on(setCurrentTrackTime, (state, time) => {
     return {
       ...state,
       min: time.min,
@@ -25,18 +25,11 @@ export const $currentPlayerTrackTime = player.createStore<ITime>({ min: 0, sec: 
     };
   });
 
-export const $currentTrack = player.createStore<ICurrentTrack>({
-  _id: '',
-  picture: '',
-  name: '',
-  audio: '',
-  artist: '',
-  trackTime: { min: 0, sec: 0 },
-  volume: 0,
-  isPlaying: false,
-  duration: 0
-})
-  .on(setCurrentTrack, (_, track) => track);
+export const $trackTime = player.createStore<ITime>({ min: 0, sec: 0 })
+  .on(setTrackTime, (_, time) => time);
+
+export const $currentAudio = player.createStore<string>('')
+  .on(setCurrentAudio, (_, audio) => audio);
 
 
 /*

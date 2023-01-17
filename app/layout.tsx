@@ -8,7 +8,7 @@ import { FooterNavigation } from '../components/footerNavigation/FooterNavigatio
 import useDeviceSize from '../utils/hooks';
 import FooterPlayer from '../components/footerPlayer/FooterPlayer';
 import { useStore } from 'effector-react';
-import { $currentTrack } from '../store/player';
+import { $currentAudio } from '../store/player';
 
 export default function RootLayout({
                                      children
@@ -18,7 +18,7 @@ export default function RootLayout({
 
   const [openDrawer, setOpenDrawer] = useState(false);
   const [width, height] = useDeviceSize();
-  const currentTrack = useStore($currentTrack);
+  const currentAudio = useStore($currentAudio);
 
   return (
     <html>
@@ -48,7 +48,7 @@ export default function RootLayout({
     }
 
     {
-      currentTrack ?
+      currentAudio != '' ?
         <div className={styles.footerPlayer}>
           <FooterPlayer />
         </div>

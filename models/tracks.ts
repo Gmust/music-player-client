@@ -26,6 +26,7 @@ export interface ICurrentTrack {
   isPlaying: boolean,
   duration?: number | null,
   trackTime: ITrackTime
+  currentTrackTime: ITrackTime
 }
 
 export interface ITrackTime {
