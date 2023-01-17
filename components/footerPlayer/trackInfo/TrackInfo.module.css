@@ -1,0 +1,16 @@
+
+
+.trackInfoWrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    align-items: center;
+}
+
+.trackInfoWrapper div{
+    margin-left: 10px;
+}
+
+.trackInfoWrapper div p{
+    margin-top: 4px;
+}

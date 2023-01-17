@@ -15,3 +15,20 @@ export interface IComment {
   username: string,
   text: string
 }
+
+export interface ICurrentTrack {
+  _id: string;
+  name: string,
+  artist: string,
+  picture: string,
+  audio: string,
+  volume: number,
+  isPlaying: boolean,
+  duration?: number | null,
+  trackTime: ITrackTime
+}
+
+export interface ITrackTime {
+  min: number,
+  sec: number
+}

@@ -2,9 +2,7 @@ import React, { FC } from 'react';
 import { ITrack } from '../../../../models/tracks';
 import styles from './TrackItem.module.css';
 import Image from 'next/image';
-import ReactAudioPlayer from 'react-audio-player';
 import { useRouter } from 'next/navigation';
-import { addOneListenFx } from '../../../../store/tracks';
 import TrackItemPlayer from './trackItemPlayer/TrackItemPlayer';
 
 export const TrackItem: FC<ITrack> = ({ _id, comments, audio, listens, artist, picture, text, name }) => {
@@ -31,7 +29,9 @@ export const TrackItem: FC<ITrack> = ({ _id, comments, audio, listens, artist, p
       </div>
 
       <div className={styles.playerStyle}>
-        <TrackItemPlayer audio={'http://localhost:8080/' + audio}/>
+        <TrackItemPlayer audio={'http://localhost:8080/' + audio} id={_id} name={name} artist={artist}
+                         picture={'http://localhost:8080/' + picture}
+        />
       </div>
 
     </div>

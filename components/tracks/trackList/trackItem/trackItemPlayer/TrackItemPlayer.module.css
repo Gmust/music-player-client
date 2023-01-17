@@ -1,12 +1,11 @@
 .trackItemPlayerWrapper {
     display: flex;
+    flex-direction: column;
     margin-left: 10px;
-    align-items: center;
-    justify-content: center;
 }
 
 .playBtn{
-    margin-top: 135px;
+    margin-top: 128px;
 }
 
 
@@ -23,3 +22,42 @@
     accent-color: var(--secondary-color);
 }
 
+.trackTime{
+    color: white;
+}
+
+.trackItemPlayerWrapper span{
+    display: flex;
+    flex-direction: row;
+}
+
+
+@media screen and (max-width: 1200px){
+    .trackItemPlayerWrapper{
+        flex-direction: row;
+    }
+
+    .playBtn{
+        margin-top: 0;
+    }
+
+    .volumeStyle input[type='range']{
+        -webkit-appearance: sliderthumb-horizontal; /* Chromium */
+        width: auto;
+    }
+
+    .trackItemPlayerWrapper span{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .volumeStyle{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .trackTime{
+        margin-top: 40px;
+    }
+}

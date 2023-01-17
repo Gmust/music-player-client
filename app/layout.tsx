@@ -6,6 +6,9 @@ import { Drawer } from '../components/sidebar/Drawer';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
 import { FooterNavigation } from '../components/footerNavigation/FooterNavigation';
 import useDeviceSize from '../utils/hooks';
+import FooterPlayer from '../components/footerPlayer/FooterPlayer';
+import { useStore } from 'effector-react';
+import { $currentTrack } from '../store/player';
 
 export default function RootLayout({
                                      children
@@ -15,6 +18,7 @@ export default function RootLayout({
 
   const [openDrawer, setOpenDrawer] = useState(false);
   const [width, height] = useDeviceSize();
+  const currentTrack = useStore($currentTrack);
 
   return (
     <html>
@@ -42,6 +46,16 @@ export default function RootLayout({
           }
         </div>
     }
+
+    {
+      currentTrack ?
+        <div className={styles.footerPlayer}>
+          <FooterPlayer />
+        </div>
+        :
+        null
+    }
+
 
     <div className={styles.pagesWrapper}>
       {children}

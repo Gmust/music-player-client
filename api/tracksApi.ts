@@ -25,7 +25,6 @@ export class TracksApi {
   static async addListen(id: string) {
     try {
       const result = await instance.post(`/tracks/listen/${id}`);
-      return console.log(result);
     } catch (e) {
       console.log(e);
     }
