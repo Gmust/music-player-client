@@ -22,14 +22,17 @@ export interface ICurrentTrack {
   artist: string,
   picture: string,
   audio: string,
-  volume: number,
-  isPlaying: boolean,
   duration?: number | null,
-  trackTime: ITrackTime
-  currentTrackTime: ITrackTime
+  trackTime?: ITrackTime
+  currentTrackTime?: ITrackTime
 }
 
 export interface ITrackTime {
   min: number,
   sec: number
+}
+
+export interface IAudio{
+  audio: string,
+  id: string
 }

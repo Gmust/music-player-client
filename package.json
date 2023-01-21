@@ -26,6 +26,6 @@
     "react-form-stepper": "^2.0.3",
     "react-icons": "^4.7.1",
     "typescript": "4.9.4",
-    "use-sound": "^4.0.1"
+    "react-player": "^2.11.0"
   }
 }

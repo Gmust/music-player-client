@@ -81,4 +81,8 @@
         top: 0;
         left: 0;
     }
+
+    .footerPlayer{
+        margin-bottom: 34px;
+    }
 }

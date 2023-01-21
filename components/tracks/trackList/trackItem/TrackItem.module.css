@@ -4,13 +4,14 @@
     justify-content: space-between;
     align-items: center;
     margin: 20px;
-    cursor: pointer;
 }
 
 .trackInfo {
     display: flex;
+    cursor: pointer;
     flex-direction: column;
 }
+
 
 .trackInfo span {
     margin-top: 10px;
@@ -22,18 +23,18 @@
     overflow: hidden;
 }
 
-.playerStyle{
+.playerStyle {
 
 }
 
 @media screen and (max-width: 1200px) {
-    .trackItemWrapper{
+    .trackItemWrapper {
         display: flex;
         align-items: center;
         flex-direction: column;
     }
 
-    .trackImg{
+    .trackImg {
         margin-bottom: 10px;
     }
 

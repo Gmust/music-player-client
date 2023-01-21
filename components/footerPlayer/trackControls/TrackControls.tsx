@@ -1,78 +1,92 @@
-import React, { FC, useEffect } from 'react';
-import { BiAbacus, BiPause, BiPlay, BiSkipNext, BiSkipPrevious } from 'react-icons/bi';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { BiPause, BiPlay, BiSkipNext, BiSkipPrevious } from 'react-icons/bi';
 import styles from './TrackControls.module.css';
-import { ICurrentTrack } from '../../../models/tracks';
+import { $currentTrack, setCurrentTrack, setIsPlaying } from '../../../store/player';
+import ReactPlayer from 'react-player';
 import { useStore } from 'effector-react';
-import { $isPlaying, setIsPlaying } from '../../../store/player';
-import { PlayFunction } from 'use-sound/dist/types';
+import { clearInterval } from 'timers';
+import { formatSec, secondsToTime } from '../../../utils/formatTime';
+import { ITime } from '../../../models/player';
+import { changeTrack } from '../../../utils/utils';
 
 type TTrackControls = {
-  play: PlayFunction;
-  duration: number;
-  sound: any;
-  seconds: number
-  pause: (id?: string | undefined) => void;
-  trackInfo: Pick<ICurrentTrack, 'trackTime' | 'duration' | 'currentTrackTime'>
+  url: string
+  volume: number
+  isPlaying: boolean
 }
 
-export const TrackControls: FC<TTrackControls> =
-  ({ trackInfo, duration, sound, play, pause, seconds }) => {
+export const TrackControls: FC<TTrackControls> = ({ url, isPlaying, volume }) => {
 
-    const isPlaying = useStore($isPlaying);
-
-    useEffect(() => {
-      if (isPlaying) {
-        play();
-      }
-    }, [duration]);
+  const [seconds, setSeconds] = useState<number>();
+  const [time, setTime] = useState<ITime>();
+  const [currentTime, setCurrentTime] = useState<ITime>();
+  const currentTrack = useStore($currentTrack);
+  const audioInfo = useRef<any>();
 
 
+  useEffect(() => {
+    if (time?.sec === undefined || time.min === undefined) {
+      setTime(audioInfo.current.getDuration());
+    }
+  }, [time]);
 
-    const playingButton = () => {
-      if (isPlaying) {
-        pause();
-        setIsPlaying(false);
-      } else {
-        play();
-        setIsPlaying(true);
-      }
-    };
 
-    return (
-      <div className={styles.trackControlsWrapper}>
+  return (
+    <div className={styles.trackControlsWrapper}>
 
-        <div className={styles.buttonsWrapper}>
-          <BiSkipPrevious color={'green'} size={45} />
-          {isPlaying ?
-            <BiPause color={'green'} size={45} onClick={playingButton} />
-            :
-            <BiPlay color={'green'} size={45} onClick={playingButton} />
-
-          }
-          <BiSkipNext color={'green'} size={45} />
-        </div>
-
-        <div className={styles.timeRangeWrapper}>
-          <p>
-            {trackInfo.currentTrackTime.min}:{trackInfo.currentTrackTime.sec}
-          </p>
-          <input
-            type='range'
-            min='0'
-            max={duration / 1000}
-            value={seconds}
-            className='timeline'
-            onChange={(e) => {
-              sound.seek([e.target.value]);
-            }}
-          />
-          <p>
-            {trackInfo.trackTime.min}:{trackInfo.trackTime.sec}
-          </p>
-        </div>
-
+      <div className={styles.libPlayerWrapper}>
+        <ReactPlayer
+          onReady={() => {
+            setSeconds(audioInfo.current.getDuration());
+            setTime(secondsToTime(audioInfo.current.getDuration()));
+          }}
+          onSeek={() => {
+            setCurrentTime(secondsToTime(audioInfo.current.getCurrentTime()));
+          }}
+          onProgress={() => setCurrentTime(secondsToTime(audioInfo.current.getCurrentTime()))}
+          onEnded={() => {
+            console.log('changed');
+            changeTrack(currentTrack);
+          }}
+          ref={audioInfo}
+          url={url} config={{ file: { forceAudio: true } }} playing={isPlaying} volume={volume} />
       </div>
-    );
-  };
+
+      <div className={styles.buttonsWrapper}>
+        <BiSkipPrevious color={'green'} size={45} onClick={()=>changeTrack(currentTrack)} />
+        {isPlaying ?
+          <BiPause color={'green'} size={45} onClick={() => {
+            setIsPlaying(false);
+          }} />
+          :
+          <BiPlay color={'green'} size={45} onClick={() => {
+            setIsPlaying(true);
+          }} />
+        }
+        <BiSkipNext color={'green'} size={45} onClick={()=>changeTrack(currentTrack)}  />
+      </div>
+
+      <div className={styles.timeRangeWrapper}>
+        <p>
+          {currentTime?.min}:{formatSec(currentTime?.sec!)}
+        </p>
+
+        <input type='range'
+               min={0}
+               value={currentTime?.min! * 60 + currentTime?.sec!}
+               max={seconds}
+               step={0.01}
+               onChange={(e) => {
+                 audioInfo.current.seekTo(Number(e.currentTarget.value), 'seconds');
+               }}
+        />
+
+        <p>
+          {time?.min}:{formatSec(time?.sec!)}
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default TrackControls;
