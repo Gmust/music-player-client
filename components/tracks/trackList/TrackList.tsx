@@ -12,10 +12,10 @@ export const TrackList = () => {
 
   return (
     <div className={styles.trackListWrapper}>
-      <ul>
+      <ul className={styles.ulStyle}>
         {
           tracks.map((track) =>
-            <li key={track._id}><TrackItem {...track} /></li>)
+            <li className={styles.liStyle} key={track._id}><TrackItem {...track} /></li>)
         }
       </ul>
     </div>

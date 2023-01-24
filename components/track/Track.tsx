@@ -8,6 +8,7 @@ import { AiOutlineRollback } from 'react-icons/ai';
 import { useRouter } from 'next/navigation';
 import { $track, getTrackFx } from '../../store/tracks';
 import { useStore } from 'effector-react';
+import { TracksApi } from '../../api/tracksApi';
 
 
 export const Track = ({ id }: any) => {
@@ -29,6 +30,11 @@ export const Track = ({ id }: any) => {
         <button onClick={() => router.back()}>
           <AiOutlineRollback />
           Return to the list
+        </button>
+        <button onClick={() => {
+          TracksApi.deleteTrack(id);
+          router.back();
+        }}>Delete
         </button>
       </div>
 

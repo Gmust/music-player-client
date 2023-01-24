@@ -8,6 +8,7 @@ import { clearInterval } from 'timers';
 import { formatSec, secondsToTime } from '../../../utils/formatTime';
 import { ITime } from '../../../models/player';
 import { changeTrack } from '../../../utils/utils';
+import { TracksApi } from '../../../api/tracksApi';
 
 type TTrackControls = {
   url: string
@@ -45,7 +46,7 @@ export const TrackControls: FC<TTrackControls> = ({ url, isPlaying, volume }) =>
           }}
           onProgress={() => setCurrentTime(secondsToTime(audioInfo.current.getCurrentTime()))}
           onEnded={() => {
-            console.log('changed');
+            TracksApi.addListen(currentTrack._id);
             changeTrack(currentTrack);
           }}
           ref={audioInfo}
@@ -53,7 +54,7 @@ export const TrackControls: FC<TTrackControls> = ({ url, isPlaying, volume }) =>
       </div>
 
       <div className={styles.buttonsWrapper}>
-        <BiSkipPrevious color={'green'} size={45} onClick={()=>changeTrack(currentTrack)} />
+        <BiSkipPrevious color={'green'} size={45} onClick={() => changeTrack(currentTrack)} />
         {isPlaying ?
           <BiPause color={'green'} size={45} onClick={() => {
             setIsPlaying(false);
@@ -63,7 +64,7 @@ export const TrackControls: FC<TTrackControls> = ({ url, isPlaying, volume }) =>
             setIsPlaying(true);
           }} />
         }
-        <BiSkipNext color={'green'} size={45} onClick={()=>changeTrack(currentTrack)}  />
+        <BiSkipNext color={'green'} size={45} onClick={() => changeTrack(currentTrack)} />
       </div>
 
       <div className={styles.timeRangeWrapper}>

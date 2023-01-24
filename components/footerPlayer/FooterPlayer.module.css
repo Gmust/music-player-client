@@ -5,4 +5,30 @@
     flex: 1;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.footerPlayerWrapper input[type='range']:hover {
+    accent-color: var(--secondary-color);
+}
+
+
+.footerPlayerWrapper input[type='range'] {
+    accent-color: gray;
+    width: 200px;
+    height: 5px;
+    margin-top: 5px;
+}
+
+
+.footerSound{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+@media  screen and (max-width: 800px){
+
 }

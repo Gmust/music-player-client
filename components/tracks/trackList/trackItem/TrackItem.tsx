@@ -4,6 +4,7 @@ import styles from './TrackItem.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import TrackItemPlayer from './trackItemPlayer/TrackItemPlayer';
+import { formatTrackName } from '../../../../utils/utils';
 
 export const TrackItem: FC<ITrack> = ({ _id, comments, audio, listens, artist, picture, text, name }) => {
 
@@ -16,13 +17,13 @@ export const TrackItem: FC<ITrack> = ({ _id, comments, audio, listens, artist, p
            onClick={() => {
              router.push(`tracks/${_id}`);
            }}>
-        <h2>{name}</h2>
+        <h2>{formatTrackName(name)}</h2>
         <span>by: {artist}</span>
 
         <div className={styles.trackImg}>
           {
             picture ?
-              <Image src={'http://localhost:8080/' +  picture} alt={''} width={150} priority={false} height={150} />
+              <Image src={'http://localhost:8080/' + picture} alt={''} width={150} priority={false} height={150} />
               :
               ''
           }
@@ -31,8 +32,8 @@ export const TrackItem: FC<ITrack> = ({ _id, comments, audio, listens, artist, p
 
 
       <div className={styles.playerStyle}>
-        <TrackItemPlayer audio={'http://localhost:8080/'+audio} _id={_id} artist={artist} name={name}
-                         picture={'http://localhost:8080/'+picture}
+        <TrackItemPlayer audio={'http://localhost:8080/' + audio} _id={_id} artist={artist} name={name}
+                         picture={'http://localhost:8080/' + picture}
         />
       </div>
 

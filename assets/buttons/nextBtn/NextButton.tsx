@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './NextButton.module.css';
+import { Store } from 'effector';
 
 
 type TNextButtonProps = {

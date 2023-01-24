@@ -2,7 +2,11 @@
 .tracksWrapper {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+.tracksListWrapper{
+    margin-bottom: 140px;
 }
 
 .uploadTrack {

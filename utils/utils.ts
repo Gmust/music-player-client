@@ -28,3 +28,10 @@ export const changeTrack = (currentTrack: ICurrentTrack) => {
 };
 
 
+export function formatTrackName(name: string) {
+  if (name.length > 15) {
+    let newName = name.slice(0, 14);
+    return `${newName}...`;
+  }
+  return name;
+}
