@@ -1,0 +1,20 @@
+.routerContainer {
+    padding: 10px;
+}
+
+.routerContainer li {
+    padding: 5px;
+}
+
+.routerContainer a {
+    transition: 1000ms;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    color: white;
+    font-size: 20px;
+}
+
+.routerContainer a:hover {
+    border-color: white;
+
+}

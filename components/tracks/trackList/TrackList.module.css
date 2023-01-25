@@ -1,0 +1,75 @@
+
+.notFound {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 100px;
+    color: white;
+    font-size: 30px;
+    font-family: var(--font-fam);
+}
+
+.trackListWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.ulStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.liStyle {
+    margin: 50px 60px 5px 5px;
+    transform: scale(1.1);
+    background-color: rgba(21, 11, 11, 0.2);
+    border: 3px solid var(--secondary-color);
+    padding: 1px;
+    border-radius: 20px;
+}
+
+.trackImg {
+    border-radius: 20px;
+}
+
+
+.trackListWrapper::-webkit-scrollbar {
+    width: 4px;
+}
+
+.trackListWrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.trackListWrapper::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.trackListWrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media screen and (max-width: 680px) {
+    .trackListWrapper ul li {
+        padding: 0;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .trackListWrapper {
+        overflow: auto;
+        position: relative;
+    }
+
+
+}

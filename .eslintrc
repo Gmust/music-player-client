@@ -1,0 +1,19 @@
+{
+  "plugins": [
+    "effector"
+  ],
+  "extends": [
+    "plugin:effector/react",
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    },
+    "requireConfigFile": false
+  },
+  "parser": "@babel/eslint-parser"
+}

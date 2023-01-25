@@ -1,0 +1,62 @@
+
+.tracksWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.tracksListWrapper {
+    margin-bottom: 140px;
+}
+
+.uploadTrack {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.uploadTrack h1 {
+    font-size: 30px;
+}
+
+.uploadTrack button {
+    font-size: large;
+    font-weight: bold;
+    color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.uploadTrack button:hover {
+    transform: scale(1.1);
+    transition: 200ms;
+    box-shadow: 0px 1px 24px 1px rgba(37, 187, 40, 1);
+}
+
+.uploadTrack button:not(:hover) {
+    transform: scale(1);
+    transition: 200ms;
+    box-shadow: none;
+}
+
+.uploadTrack input {
+    font-size: 15px;
+    font-family: var(--font-fam);
+    border: none;
+}
+
+.uploadTrack input:focus{
+   outline: none;
+}
+
+.searchStyle{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 5px;
+}
+

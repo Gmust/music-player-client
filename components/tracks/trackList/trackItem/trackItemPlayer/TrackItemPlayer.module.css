@@ -1,0 +1,71 @@
+.trackItemPlayerWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.playBtn{
+    margin-top: 128px;
+    cursor: pointer;
+}
+
+
+.volumeStyle{
+    display: flex;
+    flex-direction: column;
+    cursor: grab;
+}
+
+.volumeStyle input[type='range']{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* Chromium */
+    width: 4px;
+    margin-left: 10px;
+    accent-color: var(--secondary-color);
+}
+
+.trackTime{
+    color: white;
+}
+
+.trackItemPlayerWrapper span{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.libPlayerWrapper div {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+@media screen and (max-width: 1200px){
+    .trackItemPlayerWrapper{
+        flex-direction: row;
+    }
+
+    .playBtn{
+        margin-top: 0;
+    }
+
+    .volumeStyle input[type='range']{
+        -webkit-appearance: sliderthumb-horizontal; /* Chromium */
+        width: auto;
+    }
+
+    .trackItemPlayerWrapper span{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .volumeStyle{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .trackTime{
+        margin-top: 40px;
+    }
+}

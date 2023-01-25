@@ -1,0 +1,42 @@
+
+.trackItemWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.trackInfo {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+}
+
+
+.trackInfo span {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.trackImg {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.playerStyle {
+
+}
+
+@media screen and (max-width: 1200px) {
+    .trackItemWrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .trackImg {
+        margin-bottom: 10px;
+    }
+
+
+}

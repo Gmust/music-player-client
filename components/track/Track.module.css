@@ -1,0 +1,75 @@
+
+
+.returnBtn{
+    display: flex;
+    margin-bottom: 10px;
+    transform: translateX(-30px);
+    justify-content: flex-start;
+}
+
+.returnBtn button{
+    background-color: var(--secondary-color);
+    color: white;
+    font-family: var(--font-fam);
+    font-size: 20px;
+    border-radius: 6px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.trackWrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+
+
+.trackHead{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.trackHead img{
+    border-radius: 10px;
+}
+
+
+.trackHead h1{
+    font-size: 36px;
+}
+
+.trackHead h2{
+    opacity: 0.4;
+    font-size: 30px;
+}
+
+
+.listens{
+    display: inline;
+    font-size: 24px;
+}
+.listens span:nth-child(1){
+    opacity: 0.8;
+}
+
+.listens span:nth-child(2){
+    text-decoration: underline var(--secondary-color);
+}
+
+.trackTextWrapper{
+    display: flex;
+    font-size: 20px;
+}
+
+.trackCommentFormWrapper{
+
+}
+
+.commentsWrapper{
+
+}

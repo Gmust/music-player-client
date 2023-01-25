@@ -1,0 +1,44 @@
+
+.drawerContainer {
+    border-right: 2px solid var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
+    height: 200%;
+    min-height: 100vh;
+    animation-name: drawerAppear;
+    animation-duration: 1s;
+    width: 15vw;
+    opacity: 1;
+    display: flex;
+    transition: 200ms;
+}
+
+
+
+.closeBtn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex: 1;
+    height: 30px;
+    margin-top: 10px;
+}
+
+
+.closeBtn button {
+    background-color: black;
+    cursor: pointer;
+}
+
+@keyframes drawerAppear {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    to {
+        width: 15vw;
+        opacity: 1;
+    }
+}
