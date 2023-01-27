@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NextButton } from '../../../../assets/buttons/nextBtn/NextButton';
 import { FcUpload } from 'react-icons/fc';
 import styles from './SecondStepper.module.css';
@@ -12,6 +12,11 @@ export const SecondStep = () => {
   const [valid, setIsValid] = useState<boolean>(false);
   const cover = useStore($cover);
 
+  useEffect(() => {
+    if (cover != null) {
+      setIsValid(true);
+    }
+  }, [cover]);
 
   return (
     <div className={styles.secondStepWrapper}>

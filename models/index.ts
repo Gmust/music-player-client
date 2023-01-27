@@ -7,3 +7,7 @@ export interface IRoutes {
   icon: ReactElement
 }
 
+export type TSteps ={
+  label: string,
+  stepNum: number
+}

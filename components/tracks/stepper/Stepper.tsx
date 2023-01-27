@@ -1,12 +1,14 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import { $stepNumber, setShowModal, setStepperStep } from '../../../store/view/model';
+import { $stepNumber, setShowModal, setStepperStep } from '../../../store/view';
 import { FirstStep } from './firstStep/FirstStep';
 import { SecondStep } from './secondStep/SecondStep';
 import { ThirdStep } from './thirdStep/ThirdStep';
 import dynamic from 'next/dynamic';
 import styles from './Stepper.module.css';
 import { AiFillCloseSquare } from 'react-icons/ai';
+import { BiReset } from 'react-icons/bi';
+import { resetStepperData } from '../../../store/stepper';
 
 const StepperComponent = dynamic(() => import('../../../assets/customStepper/CustomStepper'), {
   ssr: false
@@ -39,7 +41,13 @@ export const StepperWrapper = () => {
     <div className={styles.stepperWrapper}>
 
       <div className={styles.closeIcon}>
-        <AiFillCloseSquare size={30} color='red' onClick={() => {
+        <BiReset  size={30} color='green' onClick={()=> {
+          resetStepperData(true);
+          setTimeout(()=> {
+            resetStepperData(false)
+          }, 1000)
+        }} />
+        <AiFillCloseSquare  size={30} color='red' onClick={() => {
           setShowModal(false);
           setStepperStep(0);
         }} />

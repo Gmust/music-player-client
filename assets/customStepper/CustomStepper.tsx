@@ -1,17 +1,25 @@
 import { useStore } from 'effector-react';
-import { $stepNumber } from '../../store/view';
+import { $stepNumber, setStepperStep } from '../../store/view';
 import { Step, Stepper } from 'react-form-stepper';
 import React from 'react';
+import { TSteps } from '../../models';
 
 const CustomStepper = () => {
 
-  const step: string[] = ['Track info', 'Upload the cover', 'Upload Track'];
+
+  const steps: TSteps[] = [
+    {label:'Track info', stepNum: 0},
+    {label: 'Upload the cover', stepNum: 1},
+    {label: 'Upload Track', stepNum: 2},
+  ]
+
   const stepNumber = useStore($stepNumber);
 
   return (
     <>
       <Stepper activeStep={stepNumber}>
-        {step.map((item) => <Step key={item} label={item} />)}
+        {steps.map(({stepNum,label}) =>
+          <Step key={stepNum} onClick={()=> setStepperStep(stepNum)} label={label} />)}
       </Stepper>
     </>
   );

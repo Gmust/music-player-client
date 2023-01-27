@@ -19,7 +19,7 @@ export const ThirdStep = () => {
   const cover = useStore($cover);
   const newTrack = useStore($newTrack);
   const isValid = useStore($isValid);
-  const loading = useStore(createTrackFx.pending)
+  const loading = useStore(createTrackFx.pending);
 
   useEffect(() => {
     if (newTrack !== null) {
@@ -73,7 +73,7 @@ export const ThirdStep = () => {
       </div>
 
       <div style={{ color: 'black', border: '1px solid black' }}>
-        {loading ? <span>Loading</span> : <span>Set Image</span>}
+        {loading ? <span>Loading</span> : null}
       </div>
 
     </div>

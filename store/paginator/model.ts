@@ -21,7 +21,6 @@ export const $count = paginator.createStore(9);
 
 export const $offSet = paginator.createStore(0)
   .on(setOffset, (_, offset) => {
-    console.log(offset);
     return offset;
   });
 

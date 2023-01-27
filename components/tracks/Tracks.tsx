@@ -1,12 +1,12 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import styles from './Tracks.module.css';
 import Modal from '../../assets/Modal/Modal';
 import { $modal, setShowModal } from '../../store/view';
 import { useStore } from 'effector-react';
 import { TrackList } from './trackList/TrackList';
 import { StepperWrapper } from './stepper/Stepper';
-import { getTotalAmountFx, getTracksFx, searchByParamFx, setParamInput } from '../../store/tracks';
+import { $tracks, getTotalAmountFx, getTracksFx, searchByParamFx, setParamInput } from '../../store/tracks';
 import { BiSearchAlt } from 'react-icons/bi';
 import { TracksApi } from '../../api/tracksApi';
 
@@ -19,6 +19,8 @@ export const Tracks = () => {
   useEffect(() => {
     getTracksFx();
   }, []);
+
+  const tracks = useStore($tracks)
 
   return (
     <>
@@ -38,7 +40,7 @@ export const Tracks = () => {
 
         <div className={styles.tracksListWrapper}>
           {pending}
-          <TrackList />
+          {useMemo(()=> <TrackList />, [tracks])}
         </div>
 
 
