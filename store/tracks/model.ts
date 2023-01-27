@@ -6,10 +6,15 @@ import { forward } from 'effector/effector.mjs';
 
 const tracks = createDomain();
 
+export const getTotalAmountFx = tracks.createEffect({
+  handler: async ()=> {
+    return await  TracksApi.getTracksAmount();
+  }
+})
 
 export const getTracksFx = tracks.createEffect({
-  handler: async () => {
-    return await TracksApi.getTracks();
+  handler: async (offset?: number) => {
+    return await TracksApi.getTracks(offset);
   }
 });
 
@@ -39,6 +44,7 @@ export const setParamInput = tracks.createEvent<string>();
 export const $tracks = tracks.createStore<ITrack[]>([])
   .on(setTracks, (_, tracks) => tracks);
 
+
 export const $track = tracks.createStore<ITrack>({
   _id: '',
   picture: '',
@@ -48,7 +54,7 @@ export const $track = tracks.createStore<ITrack>({
   text: '',
   artist: '',
   listens: 0
-}).on(setTrack, (_, track) => track);
+}).on(setTrack, (val, track) => track);
 
 
 export const $param = tracks.createStore('')
@@ -59,4 +65,3 @@ forward({
   to: searchByParamFx
 });
 
-$param.watch(console.log)

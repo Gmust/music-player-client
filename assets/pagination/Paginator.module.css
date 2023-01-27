@@ -1,0 +1,23 @@
+
+.paginatorWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin-top: 20px;
+}
+
+.paginatorItem {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.active {
+    color: green !important;
+    border-bottom: 1px solid white;
+}
+
+.active:hover{
+    transition: 100ms;
+    transform: scale(1.1);
+}

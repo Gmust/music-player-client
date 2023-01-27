@@ -1,13 +1,14 @@
 import { instance } from './index';
-import { setTrack, setTracks } from '../store/tracks';
-import { ITrack } from '../models/tracks';
+import {  setTrack, setTracks } from '../store/tracks';
+import { setTotalAmount } from '../store/paginator';
 
 
 export class TracksApi {
 
-  static async getTracks() {
+
+  static async getTracks(offset?: number | undefined, count?: number | undefined) {
     try {
-      const result = await instance.get('/tracks');
+      const result = await instance.get(`/tracks?offset=${offset ?? 0}&count=9`);
       return setTracks(result.data);
     } catch (e) {
       console.log(e);
@@ -22,6 +23,15 @@ export class TracksApi {
       console.log(e);
     }
   };
+
+  static async getTracksAmount() {
+    try {
+      const result = await instance.get(`/tracks`);
+      return setTotalAmount(result.data.length);
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   static async addListen(id: string) {
     try {

@@ -1,7 +1,7 @@
 import { ICurrentTrack, ITrack } from '../models/tracks';
-import { useStore } from 'effector-react';
 import { $tracks } from '../store/tracks';
 import { setCurrentTrack } from '../store/player';
+import { setOffset } from '../store/paginator';
 
 
 export function getRandomArrayElement(arr: ITrack[]) {
@@ -22,8 +22,7 @@ export const changeTrack = (currentTrack: ICurrentTrack) => {
     return setCurrentTrack({
       ...nextTrack, picture: `http://localhost:8080/${nextTrack.picture}`,
       audio: `http://localhost:8080/${nextTrack.audio}`
-    })
-      ;
+    });
   }
 };
 
@@ -35,3 +34,6 @@ export function formatTrackName(name: string) {
   }
   return name;
 }
+
+
+

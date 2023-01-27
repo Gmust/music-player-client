@@ -6,8 +6,9 @@ import { $modal, setShowModal } from '../../store/view';
 import { useStore } from 'effector-react';
 import { TrackList } from './trackList/TrackList';
 import { StepperWrapper } from './stepper/Stepper';
-import { getTracksFx, searchByParamFx, setParamInput } from '../../store/tracks';
+import { getTotalAmountFx, getTracksFx, searchByParamFx, setParamInput } from '../../store/tracks';
 import { BiSearchAlt } from 'react-icons/bi';
+import { TracksApi } from '../../api/tracksApi';
 
 
 export const Tracks = () => {
